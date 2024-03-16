@@ -4,14 +4,8 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-public class ResponseStatus implements Question<Integer> {
-
-    public static Question<Integer> getStatus() {
-        return new ResponseStatus();
-    }
-
-    @Override
-    public Integer answeredBy(Actor actor) {
-        return SerenityRest.lastResponse().statusCode();
+public class ResponseStatus{
+    public static Question<Integer> getResponseStatus(){
+        return actor -> SerenityRest.lastResponse().statusCode();
     }
 }

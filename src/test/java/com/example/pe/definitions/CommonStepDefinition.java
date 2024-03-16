@@ -34,7 +34,7 @@ public class CommonStepDefinition {
     @Then("^valida la respuesta sea (.*)$")
     public void validaLaRespuestaSea(int i) {
         System.out.println("RESP:" +lastResponse().getBody().asString());
-        theActorInTheSpotlight().should(seeThat("El código de respuesta", ResponseStatus.getStatus(), equalTo(i)));
+        theActorInTheSpotlight().should(seeThat("El código de respuesta", ResponseStatus.getResponseStatus(), equalTo(i)));
     }
 
     @Given("que {actor} es una API publica")
