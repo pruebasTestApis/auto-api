@@ -4,10 +4,10 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-public class ResponseCode implements Question<Integer> {
+public class ResponseStatus implements Question<Integer> {
 
     public static Question<Integer> getStatus() {
-        return new ResponseCode();
+        return new ResponseStatus();
     }
 
     @Override

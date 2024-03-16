@@ -1,6 +1,8 @@
 package com.example.pe.definitions;
 
-import com.example.base.questions.ResponseCode;
+import com.example.base.questions.ResponseStatus;
+import com.example.base.questions.Responsecode;
+import com.example.base.questions.Responsemessage;
 import com.example.base.util.ApiCommons;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -32,13 +34,23 @@ public class CommonStepDefinition {
     @Then("^valida la respuesta sea (.*)$")
     public void validaLaRespuestaSea(int i) {
         System.out.println("RESP:" +lastResponse().getBody().asString());
-        theActorInTheSpotlight().should(seeThat("El código de respuesta", ResponseCode.getStatus(), equalTo(i)));
+        theActorInTheSpotlight().should(seeThat("El código de respuesta", ResponseStatus.getStatus(), equalTo(i)));
     }
 
     @Given("que {actor} es una API publica")
     public void queAlumnosEsUnaAPIPublica(Actor actor) {
-        ApiCommons.URL_BASE = "https://72d9-201-218-130-91.ngrok-free.app";
+        ApiCommons.URL_BASE = "https://4a13-201-218-130-91.ngrok-free.app";
 
         actor.whoCan(CallAnApi.at(ApiCommons.URL_BASE));
+    }
+
+    @Then("^valida que el mensaje de respuesta en Responsemessage sea (.*)$")
+    public void validaQueElMensajeDeRespuestaEnResponsemessageSea(String responseMessage) {
+        theActorInTheSpotlight().should(seeThat("Mesaje es: ", Responsemessage.getResponsemessage(), is(responseMessage)));
+    }
+
+    @Then("^valida que el codigo de respuesta en Responsecode sea (.*)$")
+    public void validaQueElCodigoDeRespuestaEnResponsecodeSea(String responseCode) {
+        theActorInTheSpotlight().should(seeThat("Mensaje es: ", Responsecode.getResponsecode(), is(responseCode)));
     }
 }
