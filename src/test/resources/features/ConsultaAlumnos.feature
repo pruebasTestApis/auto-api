@@ -41,3 +41,4 @@ Feature: Consultar datos de alumnos
       | id | Responsemessage           | Responsecode |
       | X  | PROBLEMAS EN LA EJECUCIÓN | 0010         |
       | -  | PROBLEMAS EN LA EJECUCIÓN | 0010         |
+  

@@ -39,7 +39,7 @@ public class CommonStepDefinition {
 
     @Given("que {actor} es una API publica")
     public void queAlumnosEsUnaAPIPublica(Actor actor) {
-        ApiCommons.URL_BASE = "https://4a13-201-218-130-91.ngrok-free.app";
+        ApiCommons.URL_BASE = "https://ed74-201-218-130-91.ngrok-free.app";
 
         actor.whoCan(CallAnApi.at(ApiCommons.URL_BASE));
     }
